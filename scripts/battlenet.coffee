@@ -7,17 +7,12 @@ module.exports = (robot) ->
           msg.send "Battle.net API is not responding"
           return
 
-        if res.getHeader('Content-Type') isnt 'application/json'
-          msg.send "Didn't get back JSON :("
-          return
-
-        data = null
         try
           data = JSON.parse(body)
         catch error
           msg.send "Ran into an error parsing JSON :("
-         return
+          return
 
-       status = data.realms[0].status ? "up" : "down"
+        status = if data.realms[0].status then "up" else "down"
 
-       msg.send "Sen'jin is " + status
+        msg.send "Sen'jin is " + status
