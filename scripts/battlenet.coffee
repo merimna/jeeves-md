@@ -1,5 +1,5 @@
 module.exports = (robot) ->
-  robot.respond /realm status/i (msg) ->
+  robot.respond /realm status/i, (msg) ->
     robot.http("https://us.battle.net/api/wow/realm/status?realms=senjin")
       .header('Accept', 'application/json')
       .get() (err, res, body) ->
