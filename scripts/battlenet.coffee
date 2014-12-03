@@ -7,7 +7,7 @@ module.exports = (robot) ->
           msg.send "Battle.net API is not responding"
           return
 
-        if response.getHeader('Content-Type') isnt 'application/json'
+        if res.getHeader('Content-Type') isnt 'application/json'
           msg.send "Didn't get back JSON :("
           return
 
