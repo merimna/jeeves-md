@@ -14,5 +14,6 @@ module.exports = (robot) ->
           return
 
         status = if data.realms[0].status then "up" else "down"
+        queue = if data.realms[0].queue then "a" else "no"
 
-        msg.send "Sen'jin is " + status
+        msg.send "Sen'jin is " + status + " and has " + queue + " queue"
